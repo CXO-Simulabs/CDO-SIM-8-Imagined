@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<!-- (c) 2026 CXO Simulabs. All rights reserved. Unauthorized reproduction prohibited. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none';">
+<title>CDO SIM 8 — Data Asset Valuation & Infonomics · (Imagined) | CXO Simulabs</title>
+<meta name="description" content="CDO Simulation: Data Asset Valuation & Infonomics — Building the case for putting data on the balance sheet. 10 real CDO decisions with expert feedback.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mohansimham.github.io/CDO-SIM-8-Imagined/">
+<meta property="og:title" content="CDO SIM 8 — Data Asset Valuation & Infonomics | CXO Simulabs">
+<meta property="og:description" content="Can you build the case for treating data as a strategic asset? 10 real CDO decisions on data valuation, monetisation, and governance. Free simulation with expert feedback.">
+<meta property="og:url" content="https://mohansimham.github.io/CDO-SIM-8-Imagined/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CDO SIM 8 — Data Asset Valuation & Infonomics">
+<meta name="twitter:description" content="10 real data valuation decisions. Expert feedback on every choice. Free CDO simulation.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"CDO SIM 8 — Data Asset Valuation & Infonomics","description":"CDO simulation exploring data asset valuation, information asset registers, monetisation strategy, and the infonomics framework through a hypothetical company scenario.","provider":{"@type":"Organization","name":"CXO Simulabs","url":"https://www.cxosimulabs.com"},"educationalLevel":"Executive","isAccessibleForFree":true,"url":"https://mohansimham.github.io/CDO-SIM-8-Imagined/"}</script>
+
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4J0M6TE3E"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z4J0M6TE3E');</script>
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --accent:#059669; --accent-light:#ecfdf5; --btn-hover:#047857;
+  --dark:#0f172a; --muted:#556677; --border:#e2e8f0; --light:#f8fafc;
+  --red:#e23744; --navy:#1a1a2e;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;background:#ffffff;color:#1e293b;line-height:1.7;overflow-x:hidden;}
+a{color:var(--accent);}
+
+/* NAV */
+.sim-nav{background:var(--navy);padding:10px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,255,255,.06);}
+.nav-logo{font-weight:800;font-size:1.05em;cursor:pointer;user-select:none;}
+.nav-logo .cxo{color:#fff;} .nav-logo .sims{color:var(--red);}
+.nav-sims{display:flex;gap:4px;}
+.nav-sim{color:#778;text-decoration:none;font-size:.78em;padding:4px 10px;border-radius:6px;transition:all .2s;}
+.nav-sim:hover{color:#fff;background:rgba(255,255,255,.08);}
+.nav-sim.current{color:var(--accent);font-weight:600;}
+
+/* PHASES */
+.phase{display:none;} .phase.active{display:block;}
+
+/* SIM BAND */
+.sim-band{background:var(--navy);color:#fff;text-align:center;padding:48px 24px 40px;}
+.sim-band .eyebrow{display:inline-block;background:rgba(5,150,105,.15);border:1px solid rgba(5,150,105,.35);color:#6ee7b7;padding:5px 16px;border-radius:20px;font-size:.75em;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;margin-bottom:16px;}
+.sim-band h1{font-size:clamp(1.6em,4vw,2.4em);font-weight:800;margin-bottom:8px;}
+.sim-band p{color:#8899aa;max-width:540px;margin:0 auto;font-size:.92em;}
+
+/* BUTTONS */
+.btn{display:block;width:100%;padding:14px;border:none;border-radius:10px;font-size:.95em;font-weight:700;cursor:pointer;transition:all .2s;text-align:center;}
+.btn-primary{background:var(--accent);color:#fff;} .btn-primary:hover{background:var(--btn-hover);}
+.btn-navy{background:var(--navy);color:#fff;} .btn-navy:hover{background:#2a2a3e;}
+.btn-outline{background:transparent;border:1.5px solid var(--border);color:var(--dark);} .btn-outline:hover{border-color:var(--accent);color:var(--accent);}
+
+/* GATE */
+.gate-wrap{max-width:420px;margin:40px auto;padding:0 20px;}
+.gate-wrap h2{text-align:center;margin-bottom:6px;}
+.gate-wrap .sub{text-align:center;color:var(--muted);font-size:.88em;margin-bottom:24px;}
+.form-group{margin-bottom:16px;}
+.form-group label{display:block;font-weight:600;font-size:.82em;margin-bottom:6px;color:#334155;}
+.form-group input{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:10px;font-size:.92em;transition:border .2s;}
+.form-group input:focus{outline:none;border-color:var(--accent);}
+.otp-timer{text-align:center;font-size:.82em;color:var(--muted);margin-top:8px;}
+.attempt-badge{text-align:center;margin-bottom:20px;font-size:.82em;font-weight:600;color:var(--accent);}
+
+/* INTRO */
+.intro-wrap{max-width:680px;margin:0 auto;padding:32px 20px;}
+.intro-wrap h2{font-size:1.3em;margin-bottom:16px;}
+.key-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0;}
+.key-card{background:var(--light);border:1px solid var(--border);border-radius:10px;padding:16px;}
+.key-card .kc-title{font-weight:700;font-size:.82em;color:var(--accent);margin-bottom:4px;}
+.key-card .kc-text{font-size:.78em;color:var(--muted);line-height:1.5;}
+
+/* LEARN CARDS */
+.learn-wrap{max-width:720px;margin:0 auto;padding:0 20px 32px;}
+.learn-card{display:none;background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:28px 24px;margin-bottom:20px;}
+.learn-card.active{display:block;}
+.learn-card .card-num{font-size:.72em;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;}
+.learn-card .card-title{font-size:1.15em;font-weight:800;margin-bottom:6px;color:var(--dark);}
+.learn-card .learn-subtitle{font-size:.85em;color:var(--accent);font-weight:600;margin-bottom:16px;}
+.learn-card p,.learn-card li{font-size:.85em;color:#374151;line-height:1.7;}
+.learn-card ul{padding-left:18px;margin:10px 0;}
+.learn-card li{margin-bottom:6px;}
+.learn-card .insight{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:12px 16px;margin:16px 0;font-size:.84em;color:#374151;}
+.learn-card .learn-nav{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding-top:16px;border-top:1px solid var(--border);}
+.learn-card .learn-nav .card-progress{font-size:.78em;color:var(--muted);}
+
+/* QUESTIONS */
+.progress-bar-wrap{background:var(--navy);padding:16px 24px 14px;position:sticky;top:49px;z-index:90;}
+.progress-top{display:flex;justify-content:space-between;margin-bottom:8px;}
+.progress-label{color:#8899aa;font-size:.78em;font-weight:600;}
+.progress-track{height:6px;background:rgba(255,255,255,.1);border-radius:3px;overflow:hidden;}
+.progress-fill{height:100%;background:var(--accent);border-radius:3px;transition:width .4s;}
+.q-wrap{max-width:740px;margin:0 auto;padding:28px 20px;}
+.scenario-box{background:var(--light);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px;}
+.scenario-label{font-size:.72em;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;}
+.scenario-text{font-size:.88em;color:#374151;white-space:pre-line;line-height:1.7;}
+.q-text{font-weight:700;font-size:1.05em;margin-bottom:18px;}
+.options{display:flex;flex-direction:column;gap:10px;}
+.option{border:1.5px solid var(--border);border-radius:10px;padding:16px;font-size:.85em;cursor:pointer;transition:all .2s;line-height:1.7;}
+.option:hover{border-color:var(--accent);background:var(--accent-light);}
+.option.locked{cursor:default;opacity:.85;} .option.locked:hover{background:transparent;}
+.next-btn-wrap{text-align:center;margin-top:20px;}
+
+/* RESULTS */
+.results-wrap{max-width:740px;margin:0 auto;padding:28px 20px;}
+.card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:28px 24px;}
+.score-ring-wrap{display:flex;justify-content:center;margin:10px 0 16px;}
+.score-ring{position:relative;width:160px;height:160px;}
+.score-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;}
+.score-num{font-size:2.4em;font-weight:800;color:var(--dark);}
+.score-pct{font-size:.82em;color:var(--muted);}
+.tier-badge{display:inline-block;padding:6px 20px;border-radius:20px;font-size:.82em;font-weight:700;margin:8px 0 10px;}
+.tier-mastery{background:#dcfce7;color:#166534;}
+.tier-proficiency{background:#dbeafe;color:#1e40af;}
+.tier-competency{background:#fef3c7;color:#92400e;}
+.tier-foundational{background:#fce7f3;color:#9d174d;}
+.q-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.dot-high{background:#059669;} .dot-mid{background:#d97706;} .dot-low{background:#dc2626;}
+.results-summary{margin:24px 0;}
+.results-summary h3{margin-bottom:14px;}
+.comp-bar-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.comp-label{width:180px;font-size:.8em;font-weight:600;color:#374151;flex-shrink:0;}
+.comp-track{flex:1;height:10px;background:#f1f5f9;border-radius:5px;overflow:hidden;}
+.comp-fill{height:100%;border-radius:5px;transition:width .6s;}
+.comp-pct{width:40px;text-align:right;font-size:.8em;font-weight:700;}
+.cumulative-card{margin-top:24px;}
+.insight-box{background:var(--accent-light);border-radius:12px;padding:20px;margin-top:18px;}
+.insight-label{font-size:.72em;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;}
+.insight-text{font-size:.88em;color:#374151;line-height:1.7;}
+.strengths-row{display:flex;flex-wrap:wrap;gap:6px;}
+.strength-tag{background:#dcfce7;color:#166534;font-size:.75em;font-weight:600;padding:4px 12px;border-radius:12px;}
+.gap-tag{background:#fee2e2;color:#991b1b;font-size:.75em;font-weight:600;padding:4px 12px;border-radius:12px;}
+
+/* NEXT SIM BANNER */
+.next-sim-banner{display:none;align-items:center;justify-content:space-between;background:linear-gradient(135deg,var(--navy),#2a2a3e);color:#fff;border-radius:14px;padding:24px 28px;margin-bottom:24px;gap:16px;flex-wrap:wrap;}
+.next-sim-banner h4{margin-bottom:4px;} .next-sim-banner p{font-size:.82em;color:#8899aa;}
+.btn-gold{background:linear-gradient(135deg,#c9a84c,#e8d48b);color:#1a1a2e;padding:10px 22px;border-radius:10px;font-weight:700;font-size:.85em;text-decoration:none;white-space:nowrap;}
+
+/* CERT */
+.cert-section{margin-top:28px;}
+.cert-section h3{margin-bottom:10px;}
+#certCanvas{width:100%;border-radius:10px;border:1px solid var(--border);}
+.cert-buttons{display:flex;flex-wrap:wrap;gap:8px;}
+.cert-buttons .btn{width:auto;padding:10px 18px;font-size:.82em;}
+
+/* HUB */
+.hub-section{background:var(--navy);padding:48px 24px;margin-top:40px;}
+.hub-inner{max-width:740px;margin:0 auto;}
+.hub-inner h3{color:#fff;margin-bottom:6px;} .hub-inner p{color:#8899aa;font-size:.85em;margin-bottom:20px;}
+.hub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;}
+.hub-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:16px;text-decoration:none;transition:all .2s;}
+.hub-card:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);transform:translateY(-2px);}
+.hub-card.current-sim{border-color:rgba(5,150,105,.5);background:rgba(5,150,105,.08);}
+.hub-card .hw{font-size:.72em;color:var(--red);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+.hub-card .hco{color:#fff;font-weight:700;font-size:.95em;}
+.hub-card .htopic{color:#556677;font-size:.78em;margin-top:4px;}
+.hub-card .hstatus{font-size:.72em;font-weight:600;margin-top:8px;}
+.status-available{color:#34d399;} .status-done{color:var(--accent);} .status-locked{color:#556677;} .status-live{color:#34d399;}
+
+/* SOURCES */
+.sources-section{margin-top:28px;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.sources-toggle{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;cursor:pointer;background:var(--light);}
+.sources-toggle h3{font-size:.92em;margin:0;}
+.toggle-icon{font-size:.8em;transition:transform .3s;color:var(--muted);}
+.toggle-icon.open{transform:rotate(180deg);}
+.sources-content{display:none;padding:16px 20px;font-size:.82em;color:#475569;line-height:1.7;}
+.sources-content.open{display:block;}
+.sources-content ul{padding-left:18px;margin-bottom:14px;}
+.sources-content li{margin-bottom:6px;}
+.disclaimer-text{background:#fef2f2;border-radius:8px;padding:12px 16px;font-size:.88em;color:#92400e;line-height:1.6;}
+
+/* ATTEMPT 2 */
+.attempt2-wrap{text-align:center;padding:28px;background:var(--accent-light);border-radius:14px;margin:24px 0;}
+.attempt2-wrap h3{margin-bottom:6px;} .attempt2-wrap p{font-size:.88em;color:var(--muted);margin-bottom:16px;}
+
+/* FOOTER */
+footer{background:#1a1a2e;color:#445566;text-align:center;padding:24px;font-size:.8em;}
+footer a{color:#667788;text-decoration:none;} footer a:hover{color:#8899aa;}
+
+/* BLOCKED */
+.center-wrap{max-width:520px;margin:0 auto;padding:40px 20px;text-align:center;}
+.blocked-wrap{background:var(--light);border:1.5px solid var(--border);border-radius:14px;padding:32px 24px;}
+.blocked-icon{font-size:2.4em;margin-bottom:12px;}
+
+@media(max-width:600px){
+  .key-cards{grid-template-columns:1fr;}
+  .comp-label{width:120px;font-size:.72em;}
+  .nav-sims{display:none;}
+  .hub-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div class="sim-nav">
+  <div class="nav-logo" onclick="founderTap()"><span class="cxo">CXO</span><span class="sims"> Simulabs</span></div>
+  <div class="nav-sims">
+    <a href="https://mohansimham.github.io/CDO-SIM-1-AntGroup/" class="nav-sim">SIM 1</a>
+    <a href="https://mohansimham.github.io/CDO-SIM-2-Amazon/" class="nav-sim">SIM 2</a>
+    <a href="https://mohansimham.github.io/CDO-SIM-3-Target/" class="nav-sim">SIM 3</a>
+    <a href="https://mohansimham.github.io/CDO-SIM-4-JPMorgan/" class="nav-sim">SIM 4</a>
+    <a href="https://mohansimham.github.io/CDO-SIM-5-Netflix/" class="nav-sim">SIM 5</a>
+    <a href="https://mohansimham.github.io/CDO-SIM-6-Moderna/" class="nav-sim">SIM 6</a>
+    <a href="https://mohansimham.github.io/CDO-SIM-7-Moderna/" class="nav-sim">SIM 7</a>
+    <a href="#" class="nav-sim current">SIM 8</a>
+  </div>
+</div>
+
+<!-- PHASE: GATE -->
+<div id="phase-gate" class="phase">
+  <div class="sim-band"><div class="eyebrow">CDO Simulation 8 · Hypothetical Company</div><h1>Data Asset Valuation & Infonomics</h1></div>
+  <div class="gate-wrap">
+    <h2>Enter the Simulation</h2>
+    <p class="sub">Free · 2 attempts · 10 decisions each · Expert feedback</p>
+    <div id="gate-form">
+      <div class="form-group"><label>Full Name</label><input type="text" id="gate-name" placeholder="Your name"></div>
+      <div class="form-group"><label>Email</label><input type="email" id="gate-email" placeholder="you@email.com"></div>
+      <button class="btn btn-primary" onclick="sendOTP()">Send Verification Code</button>
+    </div>
+    <div id="otp-section" style="display:none;">
+      <div class="form-group"><label>Verification Code</label><input type="text" id="otp-input" placeholder="6-digit code" maxlength="6"></div>
+      <button class="btn btn-primary" onclick="verifyOTP()">Verify & Enter</button>
+      <div class="otp-timer" id="otp-timer"></div>
+    </div>
+  </div>
+</div>
+
+<!-- PHASE: EMAIL (post-OTP) -->
+<div id="phase-email" class="phase">
+  <div class="sim-band"><div class="eyebrow">CDO Simulation 8 · Hypothetical Company</div><h1>Data Asset Valuation & Infonomics</h1></div>
+</div>
+
+<!-- PHASE: BLOCKED -->
+<div id="phase-blocked" class="phase">
+  <div class="sim-band"><div class="eyebrow">CDO Simulation 8 · Hypothetical Company</div><h1>Data Asset Valuation & Infonomics</h1></div>
+  <div class="center-wrap">
+    <div class="blocked-wrap">
+      <div class="blocked-icon">🔒</div>
+      <h2>Both Attempts Used</h2>
+      <p style="color:var(--muted);margin:12px 0 20px;font-size:.9em;">You've completed both attempts for this simulation. Explore other CDO simulations below.</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <a href="https://mohansimham.github.io/CDO-SIM-7-Moderna/" class="btn btn-navy" style="display:inline-block;text-decoration:none;width:auto;">← SIM 7 — Moderna (Transformational Leadership)</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PHASE: INTRO -->
+<div id="phase-intro" class="phase">
+  <div class="sim-band">
+    <div class="eyebrow">CDO Simulation 8 · Hypothetical Company (Imagined)</div>
+    <h1>Data Asset Valuation & Infonomics</h1>
+    <p>10 strategic decisions. Can you build the case for treating data as a balance-sheet asset — and convince a sceptical CFO and board?</p>
+  </div>
+  <div class="intro-wrap">
+    <div class="attempt-badge" id="attempt-badge-display">🎯 Attempt 1 of 2</div>
+    <h2>What You'll Face</h2>
+    <p style="color:var(--muted);font-size:.9em;margin-bottom:16px;">You are the newly appointed CDO of a mid-size consumer goods company. The company has 12 million customer transaction records spanning 8 years, supply chain data, and product performance data — but none of it has ever been formally valued, catalogued, or treated as a strategic asset. The CEO is curious about data's potential. The CFO thinks data valuation is speculative. Your mission: build the information asset register, establish a valuation methodology, design a monetisation roadmap, and shift the culture from treating data as an IT cost to managing it as a strategic asset.</p>
+    <div class="key-cards">
+      <div class="key-card"><div class="kc-title">Three Types of Data Value</div><div class="kc-text">Intrinsic value, business value, and performance value — the Laney framework for directional credibility</div></div>
+      <div class="key-card"><div class="kc-title">Information Asset Register</div><div class="kc-text">The data equivalent of a fixed asset register — because companies track furniture more rigorously than data</div></div>
+      <div class="key-card"><div class="kc-title">Eight Monetisation Pathways</div><div class="kc-text">From internal decision improvement to external data licensing — sequenced by risk and governance readiness</div></div>
+      <div class="key-card"><div class="kc-title">The Board Business Case</div><div class="kc-text">Convincing a sceptical CFO that data valuation belongs in strategic reporting — with evidence, not speculation</div></div>
+    </div>
+    <p style="font-size:.82em;color:var(--muted);margin-bottom:20px;">Learn the frameworks first, then apply them under pressure.</p>
+    <button class="btn btn-primary" onclick="showPhase('learn')">Start Learning</button>
+  </div>
+</div>
+
+<!-- PHASE: LEARN -->
+<div id="phase-learn" class="phase">
+  <div class="sim-band"><div class="eyebrow">CDO Simulation 8 · Hypothetical Company (Imagined)</div><h1>Data Asset Valuation & Infonomics</h1></div>
+  <div class="learn-wrap">
+    <!-- Card 1 -->
+    <div class="learn-card active">
+      <div class="card-num">Framework 1 of 4</div>
+      <div class="card-title">The Three Types of Data Value</div>
+      <div class="learn-subtitle">Laney's framework for measuring what most companies ignore</div>
+      <p>Doug Laney, former VP of Research at Gartner, coined the term <strong>infonomics</strong> — the economics of information. His core observation: most corporations exhibit greater discipline in tracking, managing, and reporting on their office furniture than on their data assets.</p>
+      <p style="margin-top:12px;">Laney identifies three distinct types of economic value in a data asset:</p>
+      <ul>
+        <li><strong>Intrinsic value:</strong> What is the data worth in its own right? Measured by completeness, accuracy, uniqueness, and timeliness. A dataset of 12 million verified customer records spanning 8 years has high intrinsic value because of its depth and historical range.</li>
+        <li><strong>Business value:</strong> What decisions does the data enable, and what is the economic value of those decisions? Customer data that drives pricing, segmentation, and product development has enormous business value even if the data itself cost little to collect.</li>
+        <li><strong>Performance value:</strong> How does the data improve the performance of processes, products, and people? Supply chain data that reduces defect rates from 12% to 4% has measurable performance value.</li>
+      </ul>
+      <div class="insight">
+        <strong>CDO Insight:</strong> The goal is <em>directional credibility, not accounting exactitude</em>. You do not need to value data to the penny. You need to show the board that data has measurable economic value across three dimensions — and that the current level of investment in data management is inadequate relative to that value.
+      </div>
+      <div class="learn-nav">
+        <span class="card-progress">Card 1 of 4</span>
+        <button class="btn btn-primary" onclick="nextLearnCard()" style="width:auto;padding:10px 24px;">Next</button>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="learn-card">
+      <div class="card-num">Framework 2 of 4</div>
+      <div class="card-title">The Information Asset Register</div>
+      <div class="learn-subtitle">The data equivalent of a fixed asset register</div>
+      <p>Every physical asset in a company has an asset register entry — documenting ownership, location, condition, depreciation, and value. Every desk. Every laptop. Every company vehicle.</p>
+      <p style="margin-top:12px;">Almost no data asset does. The CDO's job is to build and maintain an <strong>information asset register</strong> — an inventory of the organisation's data assets with attributes including:</p>
+      <ul>
+        <li><strong>Provenance:</strong> Where does the data come from? How is it collected?</li>
+        <li><strong>Quality:</strong> How complete, accurate, and timely is it?</li>
+        <li><strong>Ownership:</strong> Who is accountable for this data asset?</li>
+        <li><strong>Usage:</strong> Which business processes and decisions depend on it?</li>
+        <li><strong>Estimated value:</strong> What is the data worth across the three value dimensions?</li>
+      </ul>
+      <div class="insight">
+        <strong>CDO Insight:</strong> Start with the top 20 data assets ranked by business value — do not attempt to catalogue everything. A fixed asset register does not start with every paperclip; it starts with the material assets. Your information asset register should do the same. Build incrementally, prove value, then expand.
+      </div>
+      <div class="learn-nav">
+        <span class="card-progress">Card 2 of 4</span>
+        <button class="btn btn-primary" onclick="nextLearnCard()" style="width:auto;padding:10px 24px;">Next</button>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="learn-card">
+      <div class="card-num">Framework 3 of 4</div>
+      <div class="card-title">Eight Monetisation Pathways</div>
+      <div class="learn-subtitle">From internal decision improvement to external data licensing</div>
+      <p>Laney documents eight distinct pathways through which organisations can monetise data. These range from <strong>implicit monetisation</strong> (using data to improve internal decisions, reduce costs, and optimise operations) to <strong>explicit monetisation</strong> (selling, licensing, or trading data with third parties).</p>
+      <p style="margin-top:12px;">The critical sequencing insight:</p>
+      <ul>
+        <li><strong>Year 1 — Implicit monetisation:</strong> Use data to improve internal decisions. This is low-risk, generates measurable value quickly, and builds the governance infrastructure needed for external monetisation.</li>
+        <li><strong>Year 2 — Controlled external sharing:</strong> Data partnerships, mutual benefit arrangements with supply chain partners, industry consortia.</li>
+        <li><strong>Year 3 — Explicit monetisation:</strong> Selling or licensing data to third parties, building data products, creating new revenue streams from data assets.</li>
+      </ul>
+      <div class="insight">
+        <strong>CDO Insight:</strong> The most common mistake is jumping to explicit monetisation (selling data) before building the governance infrastructure to do it responsibly. Without anonymisation validation, consent verification, and regulatory review, external data monetisation is a liability, not an asset. Sequence matters: internal first, external when ready.
+      </div>
+      <div class="learn-nav">
+        <span class="card-progress">Card 3 of 4</span>
+        <button class="btn btn-primary" onclick="nextLearnCard()" style="width:auto;padding:10px 24px;">Next</button>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="learn-card">
+      <div class="card-num">Framework 4 of 4</div>
+      <div class="card-title">Making the Board Business Case</div>
+      <div class="learn-subtitle">Three types of evidence the sceptical CFO needs to see</div>
+      <p>The CFO's objection is predictable: <em>"Data valuation is too speculative to put in board reporting."</em> Three types of public evidence support the infonomics case:</p>
+      <ul>
+        <li><strong>Acquisition premiums:</strong> When Microsoft acquired LinkedIn for $26.2 billion in 2016, the tangible assets were a fraction of the price. The premium was the market's implicit valuation of 400 million professional profiles. Data is already valued in M&A — it is just not valued in management reporting.</li>
+        <li><strong>Regulatory recognition:</strong> GDPR and CCPA treat personal data as valuable enough to require explicit consent and significant penalties for misuse. Regulators have implicitly recognised that data is an asset worth protecting.</li>
+        <li><strong>Market capitalisation correlation:</strong> Academic research documents a positive correlation between data maturity and market capitalisation. Companies with sophisticated data governance earn valuation premiums over less-governed competitors.</li>
+      </ul>
+      <div class="insight">
+        <strong>CDO Insight:</strong> Position data valuation as a <em>strategic management tool</em>, separate from statutory reporting. The CFO cannot object to management reporting the way they can object to balance sheet inclusion. You are not asking the auditors to sign off — you are showing the board that their most valuable assets are invisible in current reporting, and that this invisibility leads to systematic underinvestment.
+      </div>
+      <div class="learn-nav">
+        <span class="card-progress">Card 4 of 4</span>
+        <button class="btn btn-primary" onclick="startSim()" style="width:auto;padding:10px 24px;">Start Simulation</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PHASE: QUESTIONS -->
+<div id="phase-questions" class="phase">
+  <div class="progress-bar-wrap">
+    <div class="progress-top">
+      <span class="progress-label" id="q-progress-label">Question 1 of 10</span>
+      <span class="progress-label" id="q-score-label">Score: 0</span>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+  </div>
+  <div class="q-wrap">
+    <div class="scenario-box">
+      <div class="scenario-label">Scenario</div>
+      <div class="scenario-text" id="q-scenario"></div>
+    </div>
+    <div class="q-text" id="q-question"></div>
+    <div class="options" id="q-options"></div>
+    <div class="next-btn-wrap">
+      <button class="btn btn-navy" id="next-btn" onclick="nextQuestion()" style="display:none;">Next Question</button>
+    </div>
+  </div>
+</div>
+
+<!-- PHASE: RESULTS -->
+<div id="phase-results" class="phase">
+  <div class="sim-band">
+    <div class="eyebrow">Simulation Complete</div>
+    <h1 id="results-heading">Your Results</h1>
+  </div>
+  <div class="results-wrap">
+
+    <div class="card" style="text-align:center;margin-bottom:20px;">
+      <div class="score-ring-wrap">
+        <div class="score-ring">
+          <canvas id="scoreRingCanvas" width="160" height="160"></canvas>
+          <div class="score-center">
+            <div class="score-num" id="result-pct">0%</div>
+            <div class="score-pct" id="result-score-label">0 / 0</div>
+          </div>
+        </div>
+      </div>
+      <div class="tier-badge" id="tier-badge">Strategic Mastery</div>
+      <p id="tier-feedback" style="color:var(--muted);font-size:.9em;max-width:480px;margin:0 auto;"></p>
+    </div>
+
+    <div class="next-sim-banner" id="next-sim-banner" style="display:none;">
+      <div>
+        <h4>Next: CDO SIM 9</h4>
+        <p>More CDO competencies coming soon</p>
+      </div>
+      <a href="https://www.cxosimulabs.com" class="btn-gold">Explore CXO Simulabs</a>
+    </div>
+
+    <div class="results-summary">
+      <h3>Decision Analysis — Expert Feedback on Every Choice</h3>
+      <div id="q-breakdown"></div>
+    </div>
+
+    <div class="card cumulative-card" id="cumulative-section">
+      <h3>Your CDO Profile</h3>
+      <p style="font-size:.82em;color:var(--muted);margin-bottom:20px;">Based on your decision patterns across all 10 scenarios</p>
+      <div id="competency-bars"></div>
+      <div class="insight-box">
+        <div class="insight-label">Strategic Insight</div>
+        <div class="insight-text" id="insight-text"></div>
+        <div style="margin-top:14px;">
+          <div style="font-size:.75em;font-weight:700;color:#059669;margin-bottom:6px;">STRENGTHS</div>
+          <div class="strengths-row" id="strength-tags"></div>
+        </div>
+        <div style="margin-top:12px;">
+          <div style="font-size:.75em;font-weight:700;color:#dc2626;margin-bottom:6px;">DEVELOP FURTHER</div>
+          <div class="strengths-row" id="gap-tags"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="attempt2-wrap" id="attempt2-prompt" style="display:none;">
+      <h3>Try Attempt 2?</h3>
+      <p>Different questions, same competencies. Can you improve your score?</p>
+      <button class="btn btn-primary" onclick="startAttempt2()" style="width:auto;padding:12px 32px;">Start Attempt 2</button>
+    </div>
+
+    <div class="cert-section">
+      <h3>Your Certificate</h3>
+      <p style="font-size:.82em;color:var(--muted);margin-bottom:16px;">Download the certificate for LinkedIn or the square badge for Instagram, WhatsApp and other social media.</p>
+      <canvas id="certCanvas" width="1200" height="850"></canvas>
+      <div class="cert-buttons" style="margin-top:14px;">
+        <button class="btn btn-navy" onclick="downloadCert()" style="width:auto;">↓ Certificate (LinkedIn)</button>
+        <button class="btn btn-navy" onclick="downloadBadge()" style="width:auto;">↓ Badge (Instagram)</button>
+        <button class="btn btn-outline" onclick="shareLinkedIn()" style="width:auto;">Share LinkedIn</button>
+        <button class="btn btn-outline" onclick="shareTwitter()" style="width:auto;">Share X / Twitter</button>
+        <button class="btn btn-outline" onclick="shareWhatsApp()" style="width:auto;">Share WhatsApp</button>
+        <button class="btn btn-outline" onclick="copyLink()" style="width:auto;" id="copy-link-btn">Copy Link</button>
+      </div>
+      <canvas id="badgeCanvas" width="1080" height="1080" style="display:none;"></canvas>
+    </div>
+
+    <div class="sources-section">
+      <div class="sources-toggle" onclick="this.querySelector('.toggle-icon').classList.toggle('open');this.nextElementSibling.classList.toggle('open');">
+        <h3>Sources & Disclaimer</h3>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="sources-content">
+        <ul>
+          <li>Infonomics, Doug Laney (Routledge, 2017) — concepts sourced via Laney's public articles in Forbes, FT, and WSJ</li>
+          <li>LinkedIn acquisition data: Microsoft press release, June 2016 (public)</li>
+          <li>GDPR official text (EU 2016/679); CCPA text (California Civil Code 1798) — both fully public</li>
+          <li>MIT CDOIQ Symposium published research — public conference proceedings</li>
+          <li>Academic literature on data valuation, information economics, and data governance</li>
+        </ul>
+        <div class="disclaimer-text">
+          <strong>Disclaimer:</strong> CXO Simulabs is an independent educational platform. This simulation uses a hypothetical (imagined) company scenario. It is not affiliated with, endorsed by, or sponsored by any company mentioned in the educational content. All scenarios are original educational content inspired by publicly available frameworks and research. No copyrighted materials were used. All dialogue is fictional. Financial figures and statistics are illustrative approximations used for educational purposes. This is not a professional certification or accreditation.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hub-section">
+    <div class="hub-inner">
+      <h3>CDO Track — All Simulations</h3>
+      <p>Each simulation tests a different set of CDO competencies. 18 simulations planned.</p>
+      <div class="hub-grid">
+        <a href="https://mohansimham.github.io/CDO-SIM-1-AntGroup/" class="hub-card">
+          <div class="hw">SIM 1</div>
+          <div class="hco">Ant Group</div>
+          <div class="htopic">AI Operating Models · Data Architecture · Cost Transformation</div>
+          <div class="hstatus status-available">→ Play now</div>
+        </a>
+        <a href="https://mohansimham.github.io/CDO-SIM-2-Amazon/" class="hub-card">
+          <div class="hw">SIM 2</div>
+          <div class="hco">Amazon</div>
+          <div class="htopic">Data Flywheel · Self-Reinforcing Loops · Platform Data</div>
+          <div class="hstatus status-available">→ Play now</div>
+        </a>
+        <a href="https://mohansimham.github.io/CDO-SIM-3-Target/" class="hub-card">
+          <div class="hw">SIM 3</div>
+          <div class="hco">Target</div>
+          <div class="htopic">Governance, Ethics & Compliance · Consent Boundaries</div>
+          <div class="hstatus status-available">→ Play now</div>
+        </a>
+        <a href="https://mohansimham.github.io/CDO-SIM-4-JPMorgan/" class="hub-card">
+          <div class="hw">SIM 4</div>
+          <div class="hco">JPMorgan Chase</div>
+          <div class="htopic">Responsible AI Governance at Scale</div>
+          <div class="hstatus status-available">→ Play now</div>
+        </a>
+        <a href="https://mohansimham.github.io/CDO-SIM-5-Netflix/" class="hub-card">
+          <div class="hw">SIM 5</div>
+          <div class="hco">Netflix</div>
+          <div class="htopic">Technical Fluency · Recommendation Architecture</div>
+          <div class="hstatus status-available">→ Play now</div>
+        </a>
+        <a href="https://mohansimham.github.io/CDO-SIM-6-Moderna/" class="hub-card">
+          <div class="hw">SIM 6</div>
+          <div class="hco">Moderna</div>
+          <div class="htopic">Technical Fluency · AI Platform as R&D Infrastructure</div>
+          <div class="hstatus status-available">→ Play now</div>
+        </a>
+        <a href="https://mohansimham.github.io/CDO-SIM-7-Moderna/" class="hub-card">
+          <div class="hw">SIM 7</div>
+          <div class="hco">Moderna</div>
+          <div class="htopic">Transformational Leadership · AI Academy & Culture Change</div>
+          <div class="hstatus status-available">→ Play now</div>
+        </a>
+        <div class="hub-card current-sim">
+          <div class="hw">SIM 8 · Current</div>
+          <div class="hco">(Imagined)</div>
+          <div class="htopic">Data Asset Valuation & Infonomics</div>
+          <div class="hstatus status-done">✓ Completed</div>
+        </div>
+        <div class="hub-card" style="opacity:.4;pointer-events:none;">
+          <div class="hw">SIM 9–18</div>
+          <div class="hco">Coming Soon</div>
+          <div class="htopic">More CDO competencies across real-world cases</div>
+          <div class="hstatus status-locked">🔒 Coming soon</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 CXO Simulabs · <a href="https://www.cxosimulabs.com">cxosimulabs.com</a> · <a href="https://www.cxosimulabs.com/privacy.html">Privacy</a> · <a href="https://www.cxosimulabs.com/terms.html">Terms</a></p>
+    <p style="margin-top:8px;font-size:.75em;color:#334455;max-width:700px;margin-left:auto;margin-right:auto;line-height:1.6;">CXO Simulabs is an independent educational platform. This simulation uses a hypothetical (imagined) company scenario for educational purposes. It is not affiliated with or endorsed by any company. This is not a professional certification. All dialogue is fictional.</p>
+  </footer>
+</div>
+
+<script>
+// ─── FOUNDER MODE ─────────────────────────────────────────
+let _founderTaps=0, _founderTimer=null;
+function founderTap(){
+  _founderTaps++;
+  clearTimeout(_founderTimer);
+  _founderTimer=setTimeout(()=>_founderTaps=0,600);
+  if(_founderTaps>=3){ enterFounderMode(); _founderTaps=0; }
+}
+function enterFounderMode(){
+  Object.values(LS).forEach(k=>localStorage.removeItem(k));
+  state.name='Founder Preview';
+  state.email='founder@cxosimulabs.com';
+  state.currentAttempt=1;
+  if(!document.getElementById('founder-badge')){
+    const b=document.createElement('div');
+    b.id='founder-badge';
+    b.style.cssText='position:fixed;bottom:16px;right:16px;background:#1a1a2e;color:#fff;padding:8px 16px;border-radius:8px;font-size:.78em;font-weight:600;z-index:9999;border:1px solid rgba(226,55,68,.4);cursor:pointer;';
+    b.innerHTML='🔧 Founder Preview &nbsp;<span style="color:#e23744;" onclick="exitFounderMode()">✕ Exit</span>';
+    document.body.appendChild(b);
+  }
+  document.getElementById('attempt-badge-display').textContent='🔧 Preview Mode';
+  showPhase('intro');
+}
+function exitFounderMode(){
+  const b=document.getElementById('founder-badge');
+  if(b) b.remove();
+  location.reload();
+}
+
+// ─── COMPETENCY MAP ───────────────────────────────────────
+const COMP_MAP = [
+  {name:'Data Valuation'},
+  {name:'Asset Register Design'},
+  {name:'Board Communication'},
+  {name:'Monetisation Strategy'},
+  {name:'Stakeholder Alignment'},
+  {name:'Regulatory Leverage'},
+  {name:'Strategic Asset Mgmt'},
+  {name:'ROI & Business Case'},
+  {name:'Governance Integration'},
+  {name:'Organisational Change'},
+];
+
+// ─── CONFIG ───────────────────────────────────────────────
+const EJS_KEY      = 'ABWpMkWPOTsO_gQWG';
+const EJS_SERVICE  = 'service_a6x573k';
+const EJS_TEMPLATE = 'template_xt90q9j';
+emailjs.init(EJS_KEY);
+
+const LS = {
+  name:      'cxo_cdo8_name',
+  email:     'cxo_cdo8_email',
+  attempts:  'cxo_cdo8_attempts',
+  scores:    'cxo_cdo8_scores',
+};
+
+let state = {
+  name:'', email:'',
+  otp:'', otpExpiry:0, otpAttempts:0,
+  timerInterval:null,
+  currentAttempt:1,
+  currentQ:0,
+  answers:[],
+  totalScore:0, maxScore:0,
+};
+
+const API_BASE = 'https://cxo-api.mohansimham.workers.dev';
+const SIM_ID = 'cdo8';
+const Q = {};
+let authToken = null;
+
+// ─── PHASE SWITCHING ─────────────────────────────────────
+function showPhase(id){
+  document.querySelectorAll('.phase').forEach(p=>p.classList.remove('active'));
+  document.getElementById('phase-'+id).classList.add('active');
+  window.scrollTo(0,0);
+}
+
+// ─── INIT ────────────────────────────────────────────────
+(function init(){
+  const savedName  = localStorage.getItem(LS.name);
+  const savedEmail = localStorage.getItem(LS.email);
+  const attempts   = parseInt(localStorage.getItem(LS.attempts)||'0');
+  const isPreview  = new URLSearchParams(location.search).get('preview')==='true';
+
+  if(isPreview){
+    state.name='Preview User';
+    state.email='preview@cxosimulabs.com';
+    state.currentAttempt=1;
+    showPhase('intro');
+    return;
+  }
+
+  if(savedName && savedEmail){
+    state.name=savedName; state.email=savedEmail;
+    if(attempts>=2){
+      showPhase('blocked');
+    } else {
+      state.currentAttempt=attempts+1;
+      document.getElementById('attempt-badge-display').textContent=
+        state.currentAttempt===2?'🎯 Attempt 2 of 2':'🎯 Attempt 1 of 2';
+      showPhase('intro');
+    }
+  } else {
+    showPhase('gate');
+  }
+})();
+
+// ─── OTP ─────────────────────────────────────────────────
+function sendOTP(){
+  const name  = document.getElementById('gate-name').value.trim();
+  const email = document.getElementById('gate-email').value.trim();
+  if(!name||!email){alert('Please enter your name and email.');return;}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){alert('Please enter a valid email.');return;}
+  gtag('event','otp_requested',{sim:'CDO-SIM-8-Imagined'});
+  state.name=name; state.email=email;
+  state.otp=Math.floor(100000+Math.random()*900000).toString();
+  state.otpExpiry=Date.now()+300000;
+  state.otpAttempts=0;
+
+  emailjs.send(EJS_SERVICE,EJS_TEMPLATE,{
+    to_name:name, to_email:email, otp:state.otp, sim_name:'CDO SIM 8 — Data Asset Valuation',
+    message:`Hi ${name},\n\nYour CXO Simulabs verification code for CDO SIM 8 (Data Asset Valuation & Infonomics) is:\n\n${state.otp}\n\nThis code expires in 5 minutes. Do not share it with anyone.\n\n— CXO Simulabs Team\ncxosimulabs.com`
+  }).then(()=>{
+    document.getElementById('gate-form').style.display='none';
+    document.getElementById('otp-section').style.display='block';
+    startOTPTimer();
+  }).catch(e=>{
+    gtag('event','otp_failed',{sim:'CDO-SIM-8-Imagined',error:e.text||'unknown'});
+    alert('Error sending verification code. Please try again.');
+  });
+}
+
+function startOTPTimer(){
+  let sec=300;
+  clearInterval(state.timerInterval);
+  state.timerInterval=setInterval(()=>{
+    sec--;
+    const m=Math.floor(sec/60), s=sec%60;
+    document.getElementById('otp-timer').textContent=`Code expires in ${m}:${s.toString().padStart(2,'0')}`;
+    if(sec<=0){clearInterval(state.timerInterval);document.getElementById('otp-timer').textContent='Code expired. Please request a new one.';}
+  },1000);
+}
+
+function verifyOTP(){
+  const entered=document.getElementById('otp-input').value.trim();
+  if(Date.now()>state.otpExpiry){alert('Code expired. Please request a new one.');return;}
+  state.otpAttempts++;
+  if(state.otpAttempts>5){alert('Too many attempts. Please reload and try again.');return;}
+  if(entered!==state.otp){alert('Incorrect code. Please try again.');return;}
+  clearInterval(state.timerInterval);
+  gtag('event','email_verified',{sim:'CDO-SIM-8-Imagined'});
+  fetch(`${API_BASE}/api/auth`,{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({email:state.email,simId:SIM_ID})
+  }).then(r=>r.json()).then(d=>{authToken=d.token;}).catch(()=>{});
+  localStorage.setItem(LS.name,state.name);
+  localStorage.setItem(LS.email,state.email);
+  const attempts=parseInt(localStorage.getItem(LS.attempts)||'0');
+  state.currentAttempt=attempts+1;
+  document.getElementById('attempt-badge-display').textContent=
+    state.currentAttempt===2?'🎯 Attempt 2 of 2':'🎯 Attempt 1 of 2';
+  showPhase('intro');
+}
+
+// ─── SIM START ───────────────────────────────────────────
+async function startSim(){
+  gtag('event','sim_started',{sim:'CDO-SIM-8-Imagined',attempt:state.currentAttempt});
+  state.currentQ=0; state.answers=[]; state.totalScore=0;
+
+  if(!Q[state.currentAttempt]){
+    try{
+      const res=await fetch(`${API_BASE}/api/questions/${SIM_ID}/${state.currentAttempt}`,{
+        headers:authToken?{'Authorization':`Bearer ${authToken}`}:{}
+      });
+      if(!res.ok) throw new Error('API error '+res.status);
+      const data=await res.json();
+      Q[state.currentAttempt]=data.questions;
+    }catch(e){
+      alert('Unable to load questions. Please check your internet connection and try again.');
+      return;
+    }
+  }
+
+  const questions=Q[state.currentAttempt];
+  state.maxScore=questions.reduce((s,q)=>s+Math.max(...q.options.map(o=>o.points)),0);
+  renderQuestion();
+  showPhase('questions');
+}
+
+function renderQuestion(){
+  const questions=Q[state.currentAttempt];
+  const q=questions[state.currentQ];
+  const num=state.currentQ+1;
+  document.getElementById('q-progress-label').textContent=`Question ${num} of ${questions.length}`;
+  document.getElementById('progress-fill').style.width=((num-1)/questions.length*100)+'%';
+  document.getElementById('q-scenario').textContent=q.scenario;
+  document.getElementById('q-question').textContent=q.question;
+  document.getElementById('next-btn').style.display='none';
+  const wrap=document.getElementById('q-options');
+  wrap.innerHTML=q.options.map((o,i)=>`<div class="option" onclick="selectOption(${i})">${o.text}</div>`).join('');
+}
+
+function selectOption(idx){
+  if(document.querySelector('.option.locked')) return;
+  const questions=Q[state.currentAttempt];
+  const q=questions[state.currentQ];
+  const chosen=q.options[idx];
+  const maxPts=Math.max(...q.options.map(o=>o.points));
+
+  document.querySelectorAll('.option').forEach(el=>el.classList.add('locked'));
+
+  state.answers.push({q:state.currentQ, chosen:idx, points:chosen.points, maxPts, feedback:chosen.feedback, questionText:q.question});
+  state.totalScore += chosen.points;
+  document.getElementById('q-score-label').textContent = `Score: ${state.totalScore}`;
+
+  const opts = document.querySelectorAll('.option');
+  const pctQ = (chosen.points/maxPts)*100;
+  if(pctQ>=80) opts[idx].style.borderColor='#059669';
+  else if(pctQ>=50) opts[idx].style.borderColor='#d97706';
+  else opts[idx].style.borderColor='#dc2626';
+
+  document.getElementById('next-btn').style.display='inline-block';
+  document.getElementById('next-btn').textContent =
+    state.currentQ < questions.length-1 ? 'Next Question' : 'See My Results';
+}
+
+function nextQuestion(){
+  const questions = Q[state.currentAttempt];
+  if(state.currentQ < questions.length-1){
+    state.currentQ++;
+    renderQuestion();
+    window.scrollTo(0,0);
+  } else {
+    showResults();
+  }
+}
+
+// ─── LEARN CARDS ──────────────────────────────────────────
+let currentLearnCard = 0;
+function nextLearnCard(){
+  const cards = document.querySelectorAll('.learn-card');
+  if(currentLearnCard < cards.length-1){
+    cards[currentLearnCard].classList.remove('active');
+    currentLearnCard++;
+    cards[currentLearnCard].classList.add('active');
+    window.scrollTo(0,0);
+  }
+}
+
+// ─── RESULTS ──────────────────────────────────────────────
+function showResults(){
+  const pct = Math.round((state.totalScore/state.maxScore)*100);
+  const isPreview = new URLSearchParams(location.search).get('preview')==='true' || !!document.getElementById('founder-badge');
+  if(!isPreview){
+    const attemptsDone = parseInt(localStorage.getItem(LS.attempts)||'0') + 1;
+    localStorage.setItem(LS.attempts, attemptsDone.toString());
+    const scores = JSON.parse(localStorage.getItem(LS.scores)||'[]');
+    scores.push({attempt:state.currentAttempt, score:state.totalScore, pct, date:new Date().toISOString()});
+    localStorage.setItem(LS.scores, JSON.stringify(scores));
+  }
+
+  const tier = pct>=90?'Strategic Mastery':pct>=75?'Applied Proficiency':pct>=60?'Core Competency':'Foundational Understanding';
+  gtag('event','sim_completed',{sim:'CDO-SIM-8-Imagined',attempt:state.currentAttempt,score_pct:pct,tier:tier});
+  const tierClass = pct>=90?'tier-mastery':pct>=75?'tier-proficiency':pct>=60?'tier-competency':'tier-foundational';
+  const tierFeedback = {
+    'Strategic Mastery':'Outstanding. You demonstrated the infonomics mindset that defines exceptional CDOs — understanding that data is a measurable economic asset that deserves the same management discipline as financial and physical assets. Your instinct for directional credibility over false precision is exactly right.',
+    'Applied Proficiency':'Strong performance. You grasp the core infonomics framework and its implications for data governance and monetisation. Focus on the questions you missed to sharpen your ability to navigate CFO scepticism and organisational resistance.',
+    'Core Competency':'Good foundations. You understand that data has value, but some of your approaches defaulted to traditional IT thinking rather than asset management thinking. Review the feedback on your lowest-scoring answers to shift your mindset.',
+    'Foundational Understanding':'A learning opportunity. The infonomics framework challenges deeply held assumptions about how organisations should treat data. The feedback on each question contains the strategic frameworks you need. Try Attempt 2 with fresh perspective.'
+  }[tier];
+
+  document.getElementById('results-heading').textContent = `Your Results — Attempt ${state.currentAttempt}`;
+  document.getElementById('result-pct').textContent = pct+'%';
+  document.getElementById('result-score-label').textContent = `${state.totalScore} / ${state.maxScore} pts`;
+
+  const badge = document.getElementById('tier-badge');
+  badge.textContent = tier;
+  badge.className = 'tier-badge '+tierClass;
+  document.getElementById('tier-feedback').textContent = tierFeedback;
+
+  drawScoreRing(pct);
+
+  const bd = document.getElementById('q-breakdown');
+  const questions = Q[state.currentAttempt];
+  bd.innerHTML = state.answers.map((a,i)=>{
+    const pctQ = Math.round((a.points/a.maxPts)*100);
+    const dotClass = pctQ>=80?'dot-high':pctQ>=50?'dot-mid':'dot-low';
+    const borderColor = pctQ>=80?'#059669':pctQ>=50?'#d97706':'#dc2626';
+    const chosen = questions[i].options[a.chosen];
+    return `<div style="border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:12px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+        <div class="q-dot ${dotClass}"></div>
+        <span style="font-weight:600;font-size:.88em;flex:1;">Q${i+1}: ${questions[i].question}</span>
+        <span style="font-weight:700;font-size:.88em;color:${borderColor};">${a.points}/${a.maxPts}</span>
+      </div>
+      <div style="font-size:.82em;color:var(--muted);margin-bottom:8px;">Your answer: <em>${chosen.text}</em></div>
+      <div style="font-size:.85em;color:#374151;line-height:1.7;background:var(--light);border-left:3px solid ${borderColor};border-radius:0 6px 6px 0;padding:10px 14px;">${a.feedback}</div>
+    </div>`;
+  }).join('');
+
+  const compScores = state.answers.map((a,i)=>({
+    name: COMP_MAP[i]?COMP_MAP[i].name:`Competency ${i+1}`,
+    pct:  Math.round((a.points/a.maxPts)*100)
+  }));
+
+  document.getElementById('competency-bars').innerHTML = compScores.map(c=>{
+    const color = c.pct>=80?'#059669':c.pct>=50?'#d97706':'#dc2626';
+    return `<div class="comp-bar-row">
+      <div class="comp-label">${c.name}</div>
+      <div class="comp-track"><div class="comp-fill" style="width:${c.pct}%;background:${color};"></div></div>
+      <div class="comp-pct">${c.pct}%</div>
+    </div>`;
+  }).join('');
+
+  const sorted = [...compScores].sort((a,b)=>b.pct-a.pct);
+  const strengths = sorted.slice(0,2);
+  const gaps = sorted.slice(-2);
+
+  document.getElementById('strength-tags').innerHTML = strengths.map(s=>`<span class="strength-tag">${s.name}</span>`).join('');
+  document.getElementById('gap-tags').innerHTML = gaps.map(g=>`<span class="gap-tag">${g.name}</span>`).join('');
+
+  const insightText = pct>=90
+    ? `Outstanding across the board. Your ${strengths[0].name} and ${strengths[1].name} scores reflect deep understanding of the infonomics framework. You consistently chose asset-management approaches over traditional IT thinking, and your instinct for directional credibility over false precision is exactly what a board-level CDO needs.`
+    : pct>=75
+    ? `Strong strategic instincts. You excelled in ${strengths[0].name} and ${strengths[1].name}, showing real depth in data valuation and governance. Your development areas — ${gaps[0].name} and ${gaps[1].name} — are where the highest-impact CDOs differentiate themselves in boardroom conversations.`
+    : pct>=60
+    ? `Solid foundations with clear growth areas. You showed genuine competency in ${strengths[0].name} and ${strengths[1].name}, but the gaps in ${gaps[0].name} and ${gaps[1].name} suggest some traditional IT-centric thinking that the infonomics framework challenges directly. Review the expert feedback on your lowest-scoring answers.`
+    : `This simulation challenges deeply held assumptions about data management. Your instincts in ${strengths[0].name} showed promise. The gaps in ${gaps[0].name} and ${gaps[1].name} reveal where asset-management thinking diverges most sharply from traditional IT approaches. Use the feedback to recalibrate.`;
+
+  document.getElementById('insight-text').textContent = insightText;
+
+  const isPreview2 = new URLSearchParams(location.search).get('preview')==='true' || !!document.getElementById('founder-badge');
+  if(isPreview2){
+    document.getElementById('attempt2-prompt').style.display='block';
+    document.getElementById('next-sim-banner').style.display='none';
+  } else if(state.currentAttempt===1){
+    document.getElementById('attempt2-prompt').style.display='block';
+    document.getElementById('next-sim-banner').style.display='none';
+  } else {
+    document.getElementById('attempt2-prompt').style.display='none';
+    document.getElementById('next-sim-banner').style.display='flex';
+  }
+
+  drawCertificate(pct, tier);
+  drawBadge(pct, tier);
+  showPhase('results');
+}
+
+function startAttempt2(){
+  state.currentAttempt = 2;
+  currentLearnCard = 0;
+  const cards = document.querySelectorAll('.learn-card');
+  cards.forEach((c,i)=>{c.classList.toggle('active',i===0);});
+  showPhase('intro');
+  document.getElementById('attempt-badge-display').textContent = '🎯 Attempt 2 of 2';
+}
+
+// ─── SCORE RING ───────────────────────────────────────────
+function drawScoreRing(pct){
+  const canvas = document.getElementById('scoreRingCanvas');
+  const ctx = canvas.getContext('2d');
+  const cx=80, cy=80, r=65, lw=12;
+  ctx.clearRect(0,0,160,160);
+  ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2);
+  ctx.strokeStyle='#e5e7eb'; ctx.lineWidth=lw; ctx.stroke();
+  const angle = (pct/100)*Math.PI*2 - Math.PI/2;
+  ctx.beginPath(); ctx.arc(cx,cy,r,-Math.PI/2,angle);
+  ctx.strokeStyle = pct>=90?'#16a34a':pct>=75?'#2563eb':pct>=60?'#d97706':'#dc2626';
+  ctx.lineWidth=lw; ctx.lineCap='round'; ctx.stroke();
+}
+
+// ─── CERTIFICATE ──────────────────────────────────────────
+function drawCertificate(pct, tier){
+  const canvas = document.getElementById('certCanvas');
+  const ctx = canvas.getContext('2d');
+  const W=1200, H=850;
+  canvas.width=W; canvas.height=H;
+  ctx.clearRect(0,0,W,H);
+  const CX=W/2;
+  const gold='#c9a84c';
+
+  const bg=ctx.createLinearGradient(0,0,W,H);
+  bg.addColorStop(0,'#0c1221'); bg.addColorStop(0.5,'#131b2e'); bg.addColorStop(1,'#1a1a2e');
+  ctx.fillStyle=bg; ctx.fillRect(0,0,W,H);
+
+  ctx.fillStyle='rgba(255,255,255,0.018)';
+  for(let x=0;x<W;x+=40)for(let y=0;y<H;y+=40){ctx.beginPath();ctx.arc(x,y,1.2,0,Math.PI*2);ctx.fill();}
+
+  const topGrad=ctx.createLinearGradient(0,0,W,0);
+  topGrad.addColorStop(0,'#c9a84c'); topGrad.addColorStop(0.5,'#e8d48b'); topGrad.addColorStop(1,'#c9a84c');
+  ctx.fillStyle=topGrad; ctx.fillRect(0,0,W,5);
+
+  ctx.strokeStyle='rgba(201,168,76,0.25)'; ctx.lineWidth=1;
+  ctx.strokeRect(24,24,W-48,H-48);
+
+  [[26,26,1,1],[W-26,26,-1,1],[26,H-26,1,-1],[W-26,H-26,-1,-1]].forEach(([x,y,sx,sy])=>{
+    ctx.strokeStyle='rgba(201,168,76,0.4)'; ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+sx*32,y);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x,y+sy*32);ctx.stroke();
+  });
+
+  ctx.textAlign='left';
+  ctx.font='bold 26px Inter, Arial, sans-serif';
+  const cxoW=ctx.measureText('CXO').width;
+  const slW=ctx.measureText(' Simulabs').width;
+  const logoX=CX-(cxoW+slW)/2;
+  ctx.fillStyle='#ffffff'; ctx.fillText('CXO',logoX,72);
+  ctx.fillStyle='#e23744'; ctx.fillText(' Simulabs',logoX+cxoW,72);
+
+  ctx.textAlign='center';
+  ctx.font='600 11px Inter, Arial, sans-serif';
+  ctx.fillStyle=gold; ctx.letterSpacing='3px';
+  ctx.fillText('CDO TRACK  ·  SIMULATION 8',CX,98);
+  ctx.letterSpacing='0';
+
+  ctx.strokeStyle='rgba(201,168,76,0.3)'; ctx.lineWidth=0.8;
+  ctx.beginPath();ctx.moveTo(CX-110,116);ctx.lineTo(CX+110,116);ctx.stroke();
+  ctx.fillStyle=gold;
+  ctx.beginPath();ctx.moveTo(CX,112);ctx.lineTo(CX+4,116);ctx.lineTo(CX,120);ctx.lineTo(CX-4,116);ctx.closePath();ctx.fill();
+
+  ctx.letterSpacing='6px';
+  ctx.font='600 13px Inter, Arial, sans-serif';
+  ctx.fillStyle=gold;
+  ctx.fillText('SIMULATION COMPLETION RECORD',CX,152);
+  ctx.letterSpacing='0';
+
+  ctx.font='italic 15px Georgia, serif';
+  ctx.fillStyle='rgba(255,255,255,0.4)';
+  ctx.fillText('This certifies that',CX,200);
+
+  const name=state.name||state.email;
+  ctx.font='bold 52px Georgia, "Times New Roman", serif';
+  ctx.fillStyle='#ffffff';
+  ctx.fillText(name,CX,260);
+
+  const nw=Math.min(ctx.measureText(name).width+60,W-200);
+  const ulGrad=ctx.createLinearGradient(CX-nw/2,0,CX+nw/2,0);
+  ulGrad.addColorStop(0,'rgba(201,168,76,0)'); ulGrad.addColorStop(0.3,'rgba(201,168,76,0.45)');
+  ulGrad.addColorStop(0.5,'rgba(201,168,76,0.65)'); ulGrad.addColorStop(0.7,'rgba(201,168,76,0.45)');
+  ulGrad.addColorStop(1,'rgba(201,168,76,0)');
+  ctx.strokeStyle=ulGrad; ctx.lineWidth=1.2;
+  ctx.beginPath();ctx.moveTo(CX-nw/2,275);ctx.lineTo(CX+nw/2,275);ctx.stroke();
+
+  ctx.font='italic 14px Georgia, serif';
+  ctx.fillStyle='rgba(255,255,255,0.38)';
+  ctx.fillText('has completed a learning simulation exploring',CX,316);
+
+  ctx.font='bold 28px Inter, Arial, sans-serif';
+  ctx.fillStyle='#ffffff';
+  ctx.fillText('Data Asset Valuation & Infonomics',CX,358);
+
+  ctx.font='15px Inter, Arial, sans-serif';
+  ctx.fillStyle='rgba(255,255,255,0.35)';
+  ctx.fillText('through a hypothetical company simulation',CX,390);
+
+  const divGrad1=ctx.createLinearGradient(100,0,W-100,0);
+  divGrad1.addColorStop(0,'rgba(201,168,76,0)'); divGrad1.addColorStop(0.2,'rgba(201,168,76,0.2)');
+  divGrad1.addColorStop(0.5,'rgba(201,168,76,0.3)'); divGrad1.addColorStop(0.8,'rgba(201,168,76,0.2)');
+  divGrad1.addColorStop(1,'rgba(201,168,76,0)');
+  ctx.strokeStyle=divGrad1; ctx.lineWidth=0.6;
+  ctx.beginPath();ctx.moveTo(100,420);ctx.lineTo(W-100,420);ctx.stroke();
+
+  const metricsY=488;
+  const colL=240, colC=CX, colR=W-240;
+  const ringColor=pct>=90?'#4ade80':pct>=75?'#60a5fa':pct>=60?'#fbbf24':'#f87171';
+
+  const ringR=58, ringLw=8;
+  ctx.beginPath();ctx.arc(colL,metricsY,ringR,0,Math.PI*2);
+  ctx.strokeStyle='rgba(255,255,255,0.06)'; ctx.lineWidth=ringLw; ctx.stroke();
+  const angle=(pct/100)*Math.PI*2-Math.PI/2;
+  ctx.beginPath();ctx.arc(colL,metricsY,ringR,-Math.PI/2,angle);
+  ctx.strokeStyle=ringColor; ctx.lineWidth=ringLw; ctx.lineCap='round'; ctx.stroke();
+  ctx.lineCap='butt';
+  ctx.font='bold 44px Inter, Arial, sans-serif';
+  ctx.fillStyle='#ffffff';
+  ctx.fillText(pct+'%',colL,metricsY+14);
+  ctx.font='600 9px Inter, Arial, sans-serif';
+  ctx.fillStyle='rgba(255,255,255,0.3)'; ctx.letterSpacing='2px';
+  ctx.fillText('SCORE',colL,metricsY+38);
+  ctx.letterSpacing='0';
+
+  ctx.font='bold 26px Inter, Arial, sans-serif';
+  ctx.fillStyle=ringColor;
+  ctx.fillText(tier,colC,metricsY+8);
+  ctx.font='600 9px Inter, Arial, sans-serif';
+  ctx.fillStyle='rgba(255,255,255,0.3)'; ctx.letterSpacing='2px';
+  ctx.fillText('PERFORMANCE TIER',colC,metricsY+32);
+  ctx.letterSpacing='0';
+
+  const d=new Date();
+  const dateStr=d.toLocaleString('default',{month:'long'})+' '+d.getDate()+', '+d.getFullYear();
+  ctx.font='bold 20px Inter, Arial, sans-serif';
+  ctx.fillStyle='#ffffff';
+  ctx.fillText(dateStr,colR,metricsY+8);
+  ctx.font='600 9px Inter, Arial, sans-serif';
+  ctx.fillStyle='rgba(255,255,255,0.3)'; ctx.letterSpacing='2px';
+  ctx.fillText('DATE ISSUED',colR,metricsY+32);
+  ctx.letterSpacing='0';
+
+  ctx.strokeStyle='rgba(201,168,76,0.15)'; ctx.lineWidth=0.8;
+  const sepTop=metricsY-52, sepBot=metricsY+48;
+  ctx.beginPath();ctx.moveTo((colL+colC)/2,sepTop);ctx.lineTo((colL+colC)/2,sepBot);ctx.stroke();
+  ctx.beginPath();ctx.moveTo((colC+colR)/2,sepTop);ctx.lineTo((colC+colR)/2,sepBot);ctx.stroke();
+
+  ctx.strokeStyle=divGrad1; ctx.lineWidth=0.6;
+  ctx.beginPath();ctx.moveTo(100,556);ctx.lineTo(W-100,556);ctx.stroke();
+
+  ctx.letterSpacing='2.5px';
+  ctx.font='600 9px Inter, Arial, sans-serif';
+  ctx.fillStyle=gold;
+  ctx.fillText('COMPETENCIES ASSESSED',CX,586);
+  ctx.letterSpacing='0';
+
+  const comps=COMP_MAP.map(c=>c.name);
+  ctx.font='11.5px Inter, Arial, sans-serif';
+  ctx.fillStyle='rgba(255,255,255,0.45)';
+  const compStartX=160, compSpacing=220;
+  comps.slice(0,5).forEach((c,i)=>{ctx.fillText(c,compStartX+i*compSpacing,614);});
+  comps.slice(5,10).forEach((c,i)=>{ctx.fillText(c,compStartX+i*compSpacing,640);});
+
+  const sealX=W-90, sealY=H-85, sealR=32;
+  ctx.strokeStyle='rgba(201,168,76,0.3)'; ctx.lineWidth=1.2;
+  ctx.beginPath();ctx.arc(sealX,sealY,sealR,0,Math.PI*2);ctx.stroke();
+  ctx.strokeStyle='rgba(201,168,76,0.12)'; ctx.lineWidth=0.6;
+  ctx.beginPath();ctx.arc(sealX,sealY,sealR-6,0,Math.PI*2);ctx.stroke();
+  ctx.fillStyle='rgba(201,168,76,0.04)';
+  ctx.beginPath();ctx.arc(sealX,sealY,sealR,0,Math.PI*2);ctx.fill();
+  ctx.font='bold 7px Inter, Arial, sans-serif';
+  ctx.fillStyle=gold; ctx.letterSpacing='1.5px';
+  ctx.fillText('COMPLETED',sealX,sealY-6);
+  ctx.letterSpacing='0';
+  ctx.font='bold 18px Arial';
+  ctx.fillStyle=gold;
+  ctx.fillText('✓',sealX,sealY+10);
+
+  const footGrad=ctx.createLinearGradient(50,0,W-50,0);
+  footGrad.addColorStop(0,'rgba(201,168,76,0)'); footGrad.addColorStop(0.3,'rgba(201,168,76,0.2)');
+  footGrad.addColorStop(0.5,'rgba(201,168,76,0.3)'); footGrad.addColorStop(0.7,'rgba(201,168,76,0.2)');
+  footGrad.addColorStop(1,'rgba(201,168,76,0)');
+  ctx.strokeStyle=footGrad; ctx.lineWidth=0.6;
+  ctx.beginPath();ctx.moveTo(50,H-55);ctx.lineTo(W-50,H-55);ctx.stroke();
+
+  ctx.textAlign='left';
+  ctx.font='12px Inter, Arial, sans-serif';
+  ctx.fillStyle='rgba(255,255,255,0.5)';
+  ctx.fillText('© 2026 CXO Simulabs  ·  Not a professional certification  ·  Hypothetical company scenario',55,H-32);
+  ctx.textAlign='right';
+  ctx.fillStyle='rgba(255,255,255,0.5)';
+  ctx.font='bold 11px Inter, Arial, sans-serif';
+  ctx.fillText('www.cxosimulabs.com',W-55,H-32);
+}
+
+// ─── INSTAGRAM BADGE ──────────────────────────────────────
+function drawBadge(pct, tier){
+  const canvas=document.getElementById('badgeCanvas');
+  const ctx=canvas.getContext('2d');
+  const S=1080;
+  ctx.clearRect(0,0,S,S);
+  const C=S/2;
+  const gold='#c9a84c';
+
+  const bg=ctx.createLinearGradient(0,0,S,S);
+  bg.addColorStop(0,'#0c1221'); bg.addColorStop(0.5,'#131b2e'); bg.addColorStop(1,'#1a1a2e');
+  ctx.fillStyle=bg; ctx.fillRect(0,0,S,S);
+
+  ctx.fillStyle='rgba(255,255,255,0.018)';
+  for(let x=0;x<S;x+=44)for(let y=0;y<S;y+=44){ctx.beginPath();ctx.arc(x,y,1.2,0,Math.PI*2);ctx.fill();}
+
+  const topGrad=ctx.createLinearGradient(0,0,S,0);
+  topGrad.addColorStop(0,'#c9a84c'); topGrad.addColorStop(0.5,'#e8d48b'); topGrad.addColorStop(1,'#c9a84c');
+  ctx.fillStyle=topGrad; ctx.fillRect(0,0,S,6);
+
+  ctx.strokeStyle='rgba(201,168,76,0.25)'; ctx.lineWidth=1;
+  ctx.strokeRect(24,24,S-48,S-48);
+  [[26,26,1,1],[S-26,26,-1,1],[26,S-26,1,-1],[S-26,S-26,-1,-1]].forEach(([x,y,sx,sy])=>{
+    ctx.strokeStyle='rgba(201,168,76,0.4)'; ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+sx*28,y);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x,y+sy*28);ctx.stroke();
+  });
+
+  ctx.textAlign='left';
+  ctx.font='bold 36px Inter, Arial, sans-serif';
+  const cW=ctx.measureText('CXO').width;
+  const sW=ctx.measureText(' Simulabs').width;
+  const lStart=C-(cW+sW)/2;
+  ctx.fillStyle='#ffffff'; ctx.fillText('CXO',lStart,82);
+  ctx.fillStyle='#e23744'; ctx.fillText(' Simulabs',lStart+cW,82);
+
+  ctx.textAlign='center';
+  ctx.font='600 13px Inter, Arial, sans-serif';
+  ctx.fillStyle=gold; ctx.letterSpacing='3px';
+  ctx.fillText('CDO TRACK  ·  SIMULATION 8',C,114);
+  ctx.letterSpacing='0';
+
+  ctx.strokeStyle='rgba(201,168,76,0.3)'; ctx.lineWidth=0.8;
+  ctx.beginPath();ctx.moveTo(C-100,134);ctx.lineTo(C+100,134);ctx.stroke();
+  ctx.fillStyle=gold;
+  ctx.beginPath();ctx.moveTo(C,130);ctx.lineTo(C+4,134);ctx.lineTo(C,138);ctx.lineTo(C-4,134);ctx.closePath();ctx.fill();
+
+  ctx.font='bold 32px Inter, Arial, sans-serif';
+  ctx.fillStyle='#ffffff';
+  ctx.fillText('Data Asset Valuation',C,186);
+  ctx.font='bold 32px Inter, Arial, sans-serif';
+  ctx.fillStyle='rgba(255,255,255,0.5)';
+  ctx.fillText('& Infonomics',C,226);
+
+  ctx.font='16px Inter, Arial, sans-serif';
+  ctx.fillStyle='rgba(255,255,255,0.3)';
+  ctx.fillText('Hypothetical company simulation',C,260);
+
+  const name=state.name||state.email;
+  ctx.font='bold 40px Georgia, "Times New Roman", serif';
+  ctx.fillStyle='#ffffff';
+  ctx.fillText(name,C,320);
+  const nw2=Math.min(ctx.measureText(name).width+40,S-120);
+  const ulGrad=ctx.createLinearGradient(C-nw2/2,0,C+nw2/2,0);
+  ulGrad.addColorStop(0,'rgba(201,168,76,0)'); ulGrad.addColorStop(0.3,'rgba(201,168,76,0.4)');
+  ulGrad.addColorStop(0.5,'rgba(201,168,76,0.55)'); ulGrad.addColorStop(0.7,'rgba(201,168,76,0.4)');
+  ulGrad.addColorStop(1,'rgba(201,168,76,0)');
+  ctx.strokeStyle=ulGrad; ctx.lineWidth=1;
+  ctx.beginPath();ctx.moveTo(C-nw2/2,334);ctx.lineTo(C+nw2/2,334);ctx.stroke();
+
+  const ringCY=560, r=170, lw=22;
+  ctx.beginPath();ctx.arc(C,ringCY,r,0,Math.PI*2);
+  ctx.strokeStyle='rgba(255,255,255,0.06)'; ctx.lineWidth=lw; ctx.stroke();
+  const angle=(pct/100)*Math.PI*2-Math.PI/2;
+  const ringColor=pct>=90?'#4ade80':pct>=75?'#60a5fa':pct>=60?'#fbbf24':'#f87171';
+  ctx.beginPath();ctx.arc(C,ringCY,r,-Math.PI/2,angle);
+  ctx.strokeStyle=ringColor; ctx.lineWidth=lw; ctx.lineCap='round'; ctx.stroke();
+  ctx.lineCap='butt';
+
+  ctx.font='bold 120px Inter, Arial, sans-serif';
+  ctx.fillStyle='#ffffff';
+  ctx.fillText(pct+'%',C,ringCY+40);
+
+  ctx.font='bold 30px Inter, Arial, sans-serif';
+  ctx.fillStyle=ringColor;
+  ctx.fillText(tier,C,ringCY+88);
+
+  const fDivGrad=ctx.createLinearGradient(40,0,S-40,0);
+  fDivGrad.addColorStop(0,'rgba(201,168,76,0)'); fDivGrad.addColorStop(0.3,'rgba(201,168,76,0.2)');
+  fDivGrad.addColorStop(0.5,'rgba(201,168,76,0.3)'); fDivGrad.addColorStop(0.7,'rgba(201,168,76,0.2)');
+  fDivGrad.addColorStop(1,'rgba(201,168,76,0)');
+  ctx.strokeStyle=fDivGrad; ctx.lineWidth=0.6;
+  ctx.beginPath();ctx.moveTo(40,S-100);ctx.lineTo(S-40,S-100);ctx.stroke();
+
+  const sealX=S-90, sealY=S-58;
+  ctx.strokeStyle='rgba(201,168,76,0.28)'; ctx.lineWidth=1;
+  ctx.beginPath();ctx.arc(sealX,sealY,22,0,Math.PI*2);ctx.stroke();
+  ctx.font='bold 14px Arial'; ctx.fillStyle=gold;
+  ctx.fillText('✓',sealX,sealY+5);
+
+  ctx.font='bold 22px Inter, Arial, sans-serif';
+  ctx.fillStyle='rgba(255,255,255,0.45)';
+  ctx.fillText('www.cxosimulabs.com',C,S-52);
+
+  ctx.font='14px Inter, Arial, sans-serif';
+  ctx.fillStyle='rgba(255,255,255,0.2)';
+  ctx.fillText('Try the free simulation',C,S-28);
+}
+
+function getPctTier(){
+  return {
+    pct: parseInt(document.getElementById('result-pct').textContent),
+    tier: document.getElementById('tier-badge').textContent
+  };
+}
+function downloadCert(){
+  const {pct,tier}=getPctTier();
+  gtag('event','cert_downloaded',{sim:'CDO-SIM-8-Imagined',score_pct:pct,tier:tier});
+  const canvas=document.getElementById('certCanvas');
+  canvas.width=1200; canvas.height=850;
+  drawCertificate(pct,tier);
+  const link=document.createElement('a');
+  link.download=`CXO-Simulabs-Certificate-${(state.name||'').replace(/\s/g,'-')}.png`;
+  link.href=canvas.toDataURL('image/png'); link.click();
+}
+function downloadBadge(){
+  const {pct,tier}=getPctTier();
+  gtag('event','badge_downloaded',{sim:'CDO-SIM-8-Imagined',score_pct:pct,tier:tier});
+  const canvas=document.getElementById('badgeCanvas');
+  drawBadge(pct,tier);
+  const link=document.createElement('a');
+  link.download=`CXO-Simulabs-Badge-${(state.name||'').replace(/\s/g,'-')}.png`;
+  link.href=canvas.toDataURL('image/png'); link.click();
+}
+function shareLinkedIn(){
+  gtag('event','share_linkedin',{sim:'CDO-SIM-8-Imagined'});
+  const {pct,tier}=getPctTier();
+  const text=encodeURIComponent(`I just scored ${pct}% (${tier}) on the Data Asset Valuation & Infonomics Simulation by CXO Simulabs — 10 real CDO decisions on putting data on the balance sheet.\n\nTry it free: https://cxosimulabs.com\n\n#Infonomics #DataValuation #CDO #CXOSimulabs #DataGovernance`);
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fcxosimulabs.com&summary=${text}`,'_blank');
+}
+function shareTwitter(){
+  const {pct,tier}=getPctTier();
+  const text=encodeURIComponent(`Just scored ${pct}% (${tier}) on the Data Asset Valuation & Infonomics Simulation by @CXOSimulabs — 10 real CDO decisions. Try it free\nhttps://cxosimulabs.com\n#CDO #Infonomics #DataValuation`);
+  window.open(`https://twitter.com/intent/tweet?text=${text}`,'_blank');
+}
+function shareWhatsApp(){
+  const {pct,tier}=getPctTier();
+  const text=encodeURIComponent(`I scored ${pct}% (${tier}) on the Data Asset Valuation & Infonomics Simulation by CXO Simulabs — 10 real CDO decisions with expert feedback. Try it free: https://cxosimulabs.com`);
+  window.open(`https://wa.me/?text=${text}`,'_blank');
+}
+function copyLink(){
+  navigator.clipboard.writeText('https://cxosimulabs.com').then(()=>{
+    const btn=document.getElementById('copy-link-btn');
+    btn.textContent='✓ Copied!';
+    setTimeout(()=>btn.textContent='Copy Link',2000);
+  });
+}
+
+// ─── PROTECTION ──────────────────────────────────────────
+document.addEventListener('contextmenu',e=>e.preventDefault());
+document.addEventListener('keydown',e=>{
+  if(e.key==='F12'||(e.ctrlKey&&e.shiftKey&&(e.key==='I'||e.key==='J'||e.key==='C'))||(e.ctrlKey&&e.key==='u')){e.preventDefault();}
+});
+console.log('%cStop!','color:#e23744;font-size:32px;font-weight:bold;');
+console.log('%cThis is a browser feature intended for developers. If someone told you to copy-paste something here, it is a scam.','font-size:14px;');
+console.log('%c© 2026 CXO Simulabs. All content is protected intellectual property.','font-size:12px;color:#666;');
+</script>
+</body>
+</html>
